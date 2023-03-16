@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screen/categories_screen.dart';
+import 'screen/settings_screen.dart';
 import 'screen/categoris_meals_screen.dart';
 import 'utils/app_routers.dart';
 import 'screen/mael_detail_screen.dart';
@@ -17,8 +17,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Vamos Cozinhar?',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSwatch()
-            .copyWith(primary: Colors.pink, secondary: Colors.amber),
+        colorScheme: ColorScheme.fromSwatch().copyWith(
+          primary: Colors.pink,
+          secondary: Colors.amber,
+          // background: Colors.pink,
+          // onPrimary: Colors.pink,
+        ),
         fontFamily: 'Raleway',
         canvasColor: const Color.fromRGBO(255, 254, 229, 1),
         textTheme: ThemeData.light().textTheme.copyWith(
@@ -30,6 +34,7 @@ class MyApp extends StatelessWidget {
         AppRoutes.HOME: (ctx) => TabsScreen(),
         AppRoutes.CATEGORIS_MAELS: (ctx) => const CategorisMealsScreen(),
         AppRoutes.MEAL_DETAIL: (ctx) => const MaelDetailScreen(),
+        AppRoutes.SETTINGS: (ctx) => const SettingsScreen(),
       },
     );
   }

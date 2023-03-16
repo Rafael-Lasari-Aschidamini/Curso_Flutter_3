@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import '../components/main_drawer.dart';
 import 'categories_screen.dart';
 import 'favorite_screen.dart';
 
@@ -60,26 +59,32 @@ class _TabsScreenState extends State<TabsScreen> {
     // );
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          _screens[_selectedScrennIndex]['title'] as String,
+        title: Align(
+          alignment: Alignment.center,
+          child: Text(
+            _screens[_selectedScrennIndex]['title'] as String,
+          ),
         ),
       ),
+      drawer: const MainDrawer(),
       body: _screens[_selectedScrennIndex]['screen'] as Widget,
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectScreen,
-        backgroundColor: Colors.pink,
-        unselectedItemColor: Colors.white,
+        // backgroundColor: Theme.of(context).colorScheme.primary,
+        backgroundColor: Theme.of(context).colorScheme.primary,
+
         selectedItemColor: Theme.of(context).colorScheme.secondary,
+        unselectedItemColor: Colors.white,
         currentIndex: _selectedScrennIndex,
-        items: const [
+        items: [
           BottomNavigationBarItem(
-            backgroundColor: Colors.pink,
-            icon: Icon(Icons.category),
+            backgroundColor: Theme.of(context).colorScheme.primary,
+            icon: const Icon(Icons.category),
             label: ('Categorias'),
           ),
           BottomNavigationBarItem(
-            backgroundColor: Colors.pink,
-            icon: Icon(Icons.star),
+            backgroundColor: Theme.of(context).colorScheme.primary,
+            icon: const Icon(Icons.star),
             label: ('Favoritos'),
           )
         ],
